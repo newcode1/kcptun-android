@@ -31,3 +31,5 @@ install:
 
 script:
     - ./gradlew assembleDebug check
+    - ls -la
+    - ls -la app/build/outputs/apk
