@@ -38,10 +38,10 @@ before_deploy:
       - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 deploy:
-    provider: releases
-    skip-cleanup: true
-    api_key: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-    file: app/build/outputs/apk/debug/app-debug.apk
+  provider: releases
+  skip-cleanup: true
+  api_key: $GITHUB_TOKEN
+  file: app/build/outputs/apk/debug/app-debug.apk
 
 
 script:
