@@ -32,4 +32,4 @@ install:
 script:
     - ./gradlew assembleDebug check
     - ls -la
-    - ls -la app/build/outputs/apk
+    - ls -la app/build/outputs/apk/debug
