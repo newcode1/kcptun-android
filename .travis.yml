@@ -28,6 +28,21 @@ install:
         ndk-bundle
         "platforms;android-28"
       >/dev/null
+      
+
+
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "newcode1"
+      - git config --local user.email "newcode1@email.com"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
+deploy:
+    provider: releases
+    skip-cleanup: true
+    api_key: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+    file: app/build/outputs/apk/debug/app-debug.apk
+
 
 script:
     - ./gradlew assembleDebug check
